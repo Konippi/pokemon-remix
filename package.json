@@ -18,7 +18,8 @@
     "lint:apply": "biome lint . --write",
     "lint:style": "stylelint src/**/*.css --aei",
     "lint:style:apply": "stylelint src/**/*.css --fix --aei",
-    "check": "biome check ."
+    "check": "biome check .",
+    "shadcn-add": "pnpm dlx shadcn add"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.1.0",
