@@ -24,6 +24,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./app/*"],
+      "@ui/*": ["./app/components/ui/*"],
+      "@shadcn-ui/*": ["./app/components/shadcn-ui/*"],
       "@styles/*": ["./app/styles/*"]
     },
 
