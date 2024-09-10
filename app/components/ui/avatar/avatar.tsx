@@ -2,18 +2,24 @@ import {
   Avatar as ShadcnAvatar,
   AvatarFallback as ShadcnAvatarFallback,
   AvatarImage as ShadcnAvatarImage,
-} from "@shadcn-ui/avatar";
+} from "@/components/shadcn-ui";
+import { cn } from "@/lib/utils";
 
 type AvatarProps = {
-  imgUrl: string;
-  imgAlt: string;
+  className?: string;
+  imgUrl?: string;
+  imgAlt?: string;
+  fallbackTxt: string;
 };
 
-export default function Avatar(props: AvatarProps) {
+export function Avatar({ className, imgUrl, imgAlt, fallbackTxt }: AvatarProps) {
   return (
-    <ShadcnAvatar>
-      <ShadcnAvatarImage src={props.imgUrl} alt={props.imgAlt} />
-      <ShadcnAvatarFallback>No-Image</ShadcnAvatarFallback>
+    <ShadcnAvatar className={cn(className)}>
+      {imgUrl ? (
+        <ShadcnAvatarImage src={imgUrl} alt={imgAlt} />
+      ) : (
+        <ShadcnAvatarFallback>{fallbackTxt}</ShadcnAvatarFallback>
+      )}
     </ShadcnAvatar>
   );
 }
