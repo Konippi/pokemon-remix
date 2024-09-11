@@ -7,7 +7,6 @@ const meta = {
   args: {
     fallbackTxt: "P",
   },
-  decorators: [],
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
