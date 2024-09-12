@@ -17,25 +17,25 @@ const inputVariants = cva(
   "bg-transparent shadow-sm focus:border-2 focus-visible:ring-0 focus-visible:ring-offset-0",
   {
     variants: {
-      wsize: {
-        sm: "w-36 text-xs",
-        md: "w-48 text-sm",
-        lg: "w-64 text-base",
-        full: "w-full text-sm",
+      size: {
+        sm: "h-8 w-48 text-xs",
+        md: "h-10 w-64 text-sm",
+        lg: "h-12 w-96 text-base",
       },
     },
     defaultVariants: {
-      wsize: "md",
+      size: "md",
     },
   }
 );
 
 type Props = VariantProps<typeof inputVariants> &
   InputProps &
-  InputHTMLAttributes<HTMLInputElement>;
+  Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
-export function Input({ className, startIcon: StartIcon, wsize, iconStyle, ...props }: Props) {
-  const iconSize = wsize === "lg" ? "large" : wsize === "md" ? "medium" : "small";
+export function Input({ className, startIcon: StartIcon, size, iconStyle, ...props }: Props) {
+  const iconSize = size === "lg" ? "large" : size === "md" ? "medium" : "small";
+  const paddingLeftBySize = size === "lg" ? "pl-11" : size === "md" ? "pl-9" : "pl-7";
 
   return (
     <div className="relative flex items-center">
@@ -46,12 +46,7 @@ export function Input({ className, startIcon: StartIcon, wsize, iconStyle, ...pr
       )}
       <InputPrimitive
         {...props}
-        className={cn(
-          inputVariants({ wsize }),
-          StartIcon && wsize === "lg" ? "pl-11" : wsize === "md" ? "pl-9" : "pl-7",
-          !StartIcon && "pl-3",
-          className
-        )}
+        className={cn(inputVariants({ size }), StartIcon && paddingLeftBySize, className)}
       />
     </div>
   );

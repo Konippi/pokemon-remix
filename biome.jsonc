@@ -8,7 +8,13 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": [".vscode/**", "build/**", "public/**", "node_modules/**"]
+    "ignore": [
+      ".vscode/**",
+      "build/**",
+      "public/**",
+      "node_modules/**",
+      "app/components/shadcn-ui/**"
+    ]
   },
   "organizeImports": {
     "enabled": true
