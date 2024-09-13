@@ -54,13 +54,3 @@ export const InputHasLargeWidth: Story = {
     iconStyle: "text-gray-500",
   },
 };
-
-export const InputHasFullWidth: Story = {
-  args: {
-    className: "w-full",
-    type: "text",
-    placeholder: "Filter by name...",
-    startIcon: SearchOutlined,
-    iconStyle: "text-gray-500",
-  },
-};
