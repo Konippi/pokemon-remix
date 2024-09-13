@@ -5,9 +5,6 @@ import { Input } from "./input";
 const meta: Meta<typeof Input> = {
   title: "Input",
   component: Input,
-  args: {
-    className: "focus:border-blue-300",
-  },
 };
 export default meta;
 
