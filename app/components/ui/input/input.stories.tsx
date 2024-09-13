@@ -25,7 +25,7 @@ export const DateInput: Story = {
   },
 };
 
-export const InputHasSmallWidth: Story = {
+export const SmallInput: Story = {
   args: {
     type: "text",
     placeholder: "Filter by name...",
@@ -35,7 +35,7 @@ export const InputHasSmallWidth: Story = {
   },
 };
 
-export const InputHasMediumWidth: Story = {
+export const MediumInput: Story = {
   args: {
     type: "text",
     placeholder: "Filter by name...",
@@ -45,7 +45,7 @@ export const InputHasMediumWidth: Story = {
   },
 };
 
-export const InputHasLargeWidth: Story = {
+export const LargeInput: Story = {
   args: {
     type: "text",
     placeholder: "Filter by name...",

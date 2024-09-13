@@ -2,7 +2,6 @@ import { Input as InputPrimitive } from "@/components/shadcn-ui";
 import { cn } from "@/lib/utils";
 import type { SvgIconComponent } from "@mui/icons-material";
 import { type VariantProps, cva } from "class-variance-authority";
-import type { InputHTMLAttributes } from "react";
 
 const inputVariants = cva(
   "bg-transparent shadow-sm focus:border-2 focus-visible:ring-0 focus-visible:ring-offset-0",
@@ -21,7 +20,7 @@ const inputVariants = cva(
 );
 
 type InputProps = VariantProps<typeof inputVariants> &
-  Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
     className?: string;
     startIcon?: SvgIconComponent;
     iconStyle?: string;
