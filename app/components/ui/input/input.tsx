@@ -4,15 +4,6 @@ import type { SvgIconComponent } from "@mui/icons-material";
 import { type VariantProps, cva } from "class-variance-authority";
 import type { InputHTMLAttributes } from "react";
 
-type InputSize = "sm" | "md" | "lg" | "full";
-
-type InputProps = {
-  className?: string;
-  startIcon?: SvgIconComponent;
-  size?: InputSize;
-  iconStyle?: string;
-};
-
 const inputVariants = cva(
   "bg-transparent shadow-sm focus:border-2 focus-visible:ring-0 focus-visible:ring-offset-0",
   {
@@ -29,11 +20,14 @@ const inputVariants = cva(
   }
 );
 
-type Props = VariantProps<typeof inputVariants> &
-  InputProps &
-  Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
+type InputProps = VariantProps<typeof inputVariants> &
+  Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+    className?: string;
+    startIcon?: SvgIconComponent;
+    iconStyle?: string;
+  };
 
-export function Input({ className, startIcon: StartIcon, size, iconStyle, ...props }: Props) {
+export function Input({ className, startIcon: StartIcon, size, iconStyle, ...props }: InputProps) {
   const iconSize = size === "lg" ? "large" : size === "md" ? "medium" : "small";
   const paddingLeftBySize = size === "lg" ? "pl-11" : size === "md" ? "pl-9" : "pl-7";
 
