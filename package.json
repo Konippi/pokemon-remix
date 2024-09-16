@@ -20,7 +20,8 @@
     "lint:style:apply": "stylelint src/**/*.css --fix --aei",
     "check": "biome check .",
     "sb": "storybook dev",
-    "build-sb": "storybook build"
+    "build-sb": "storybook build",
+    "openapi-gen": "sh ./script/openapi_gen.sh"
   },
   "dependencies": {
     "@emotion/react": "11.13.3",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@chromatic-com/storybook": "^1.9.0",
+    "@openapitools/openapi-generator-cli": "2.13.5",
     "@remix-run/dev": "2.11.2",
     "@storybook/addon-essentials": "8.2.9",
     "@storybook/addon-interactions": "8.2.9",

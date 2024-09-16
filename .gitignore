@@ -1,6 +1,11 @@
-node_modules
-
-/.cache
+# remix
 /build
 
+# node
+node_modules
+
+# storybook
 *storybook.log
+
+# openapi-generator
+/app/api/openapi-generated

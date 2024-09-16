@@ -29,3 +29,9 @@ else
 fi
 
 echo "Volta setup complete."
+
+# Install dependencies
+pnpm i
+
+# Generate api client by openapi-generator
+pnpm openapi-gen
