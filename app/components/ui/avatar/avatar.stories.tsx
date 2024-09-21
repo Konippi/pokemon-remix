@@ -25,6 +25,35 @@ export const WithImgAndBgColor: Story = {
   args: {
     imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
     imgAlt: "Avatar",
-    className: "bg-gray-100",
+    className: "bg-gray-200",
   },
+};
+
+export const SizeVariants: Story = {
+  args: {
+    className: "bg-gray-200",
+    imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+    imgAlt: "Avatar",
+  },
+  render: (args) => (
+    <div className="flex items-center space-x-2">
+      <Avatar {...args} size="sm" />
+      <Avatar {...args} size="md" />
+      <Avatar {...args} size="lg" />
+    </div>
+  ),
+};
+
+export const ShapeVariants: Story = {
+  args: {
+    className: "bg-gray-200",
+    imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+    imgAlt: "Avatar",
+  },
+  render: (args) => (
+    <div className="flex items-center space-x-2">
+      <Avatar {...args} shape="circle" />
+      <Avatar {...args} shape="square" />
+    </div>
+  ),
 };
