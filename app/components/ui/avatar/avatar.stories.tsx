@@ -37,9 +37,11 @@ export const SizeVariants: Story = {
   },
   render: (args) => (
     <div className="flex items-center space-x-2">
+      <Avatar {...args} size="xs" />
       <Avatar {...args} size="sm" />
       <Avatar {...args} size="md" />
       <Avatar {...args} size="lg" />
+      <Avatar {...args} size="xl" />
     </div>
   ),
 };
