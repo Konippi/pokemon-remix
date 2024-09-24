@@ -25,32 +25,18 @@ export const DateInput: Story = {
   },
 };
 
-export const SmallInput: Story = {
+export const Size: Story = {
   args: {
     type: "text",
     placeholder: "Filter by name...",
-    size: "sm",
     startIcon: SearchOutlined,
     iconStyle: "text-gray-500",
   },
-};
-
-export const MediumInput: Story = {
-  args: {
-    type: "text",
-    placeholder: "Filter by name...",
-    size: "md",
-    startIcon: SearchOutlined,
-    iconStyle: "text-gray-500",
-  },
-};
-
-export const LargeInput: Story = {
-  args: {
-    type: "text",
-    placeholder: "Filter by name...",
-    size: "lg",
-    startIcon: SearchOutlined,
-    iconStyle: "text-gray-500",
-  },
+  render: (args) => (
+    <div className="space-y-4">
+      <Input {...args} size="sm" />
+      <Input {...args} size="md" />
+      <Input {...args} size="lg" />
+    </div>
+  ),
 };

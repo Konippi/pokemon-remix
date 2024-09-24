@@ -1,4 +1,7 @@
-import { Input as InputPrimitive } from "@/components/shadcn-ui";
+import {
+  Input as InputPrimitive,
+  type InputProps as InputPropsPrimitive,
+} from "@/components/shadcn-ui";
 import { cn } from "@/lib/utils";
 import type { SvgIconComponent } from "@mui/icons-material";
 import { type VariantProps, cva } from "class-variance-authority";
@@ -9,8 +12,8 @@ const inputVariants = cva(
     variants: {
       size: {
         sm: "h-8 w-48 text-xs",
-        md: "h-10 w-64 text-sm",
-        lg: "h-12 w-96 text-base",
+        md: "h-9 w-56 text-sm",
+        lg: "h-10 w-64 text-base",
       },
     },
     defaultVariants: {
@@ -19,16 +22,18 @@ const inputVariants = cva(
   }
 );
 
-type InputProps = VariantProps<typeof inputVariants> &
-  Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
+type InputVariants = VariantProps<typeof inputVariants>;
+
+type InputProps = InputVariants &
+  Omit<InputPropsPrimitive, "size"> & {
     className?: string;
     startIcon?: SvgIconComponent;
     iconStyle?: string;
   };
 
 export function Input({ className, startIcon: StartIcon, size, iconStyle, ...props }: InputProps) {
-  const iconSize = size === "lg" ? "large" : size === "md" ? "medium" : "small";
-  const paddingLeftBySize = size === "lg" ? "pl-11" : size === "md" ? "pl-9" : "pl-7";
+  const iconSize = size === "lg" || size === "md" ? "medium" : "small";
+  const paddingLeftBySize = size === "lg" ? "pl-10" : size === "md" ? "pl-9" : "pl-8";
 
   return (
     <div className="relative flex items-center">
