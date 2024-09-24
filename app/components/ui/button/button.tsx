@@ -1,29 +1,33 @@
-import { Button as ButtonPrimitive } from "@/components/shadcn-ui";
+import {
+  Button as ButtonPrimitive,
+  type ButtonProps as ButtonPropsPrimitive,
+} from "@/components/shadcn-ui";
 import { cn } from "@/lib/utils";
 import { type VariantProps, cva } from "class-variance-authority";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg disabled:opacity-50 disabled:cursor-not-allowed",
-  {
-    variants: {
-      size: {
-        sm: "h-8 text-xs",
-        md: "h-9 text-sm",
-        lg: "h-10 text-base",
-        icon: "size-9",
-      },
+const buttonVariants = cva("shadow-md", {
+  variants: {
+    size: {
+      sm: "w-16 h-8 text-xs",
+      md: "w-20 h-10 text-sm",
+      lg: "w-24 h-12 text-base",
+      icon: "w-10 h-10",
     },
-    defaultVariants: {
-      size: "md",
+    rounded: {
+      default: "rounded-lg",
+      full: "rounded-full",
     },
-  }
-);
+  },
+  defaultVariants: {
+    size: "md",
+    rounded: "default",
+  },
+});
 
-type ButtonProps = VariantProps<typeof buttonVariants> &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    className?: string;
-    value?: string;
-    variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+type ButtonProps = ButtonVariants &
+  Omit<ButtonPropsPrimitive, "size"> & {
     icon?: React.ReactNode;
     iconLocation?: "left" | "right";
   };
@@ -31,21 +35,17 @@ type ButtonProps = VariantProps<typeof buttonVariants> &
 export function Button({
   className,
   value,
-  variant,
-  icon,
+  icon: Icon,
   iconLocation = "left",
   size,
+  rounded,
   ...props
 }: ButtonProps) {
   return (
-    <ButtonPrimitive
-      {...props}
-      className={cn(buttonVariants({ size }), className)}
-      variant={variant}
-    >
-      {icon && iconLocation === "left" && <span className={value && "mr-1"}>{icon}</span>}
+    <ButtonPrimitive className={cn(buttonVariants({ size, rounded }), className)} {...props}>
+      {Icon && iconLocation === "left" && Icon}
       {value}
-      {icon && iconLocation === "right" && <span className={value && "ml-1"}>{icon}</span>}
+      {Icon && iconLocation === "right" && Icon}
     </ButtonPrimitive>
   );
 }
