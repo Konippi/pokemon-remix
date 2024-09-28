@@ -33,6 +33,14 @@
         "useHookAtTopLevel": "error"
       },
       "nursery": {
+        "noRestrictedImports": {
+          "level": "warn",
+          "options": {
+            "paths": {
+              "react-router-dom": "Use @remix-run/react instead"
+            }
+          }
+        },
         "useSortedClasses": "error"
       },
       "style": {
